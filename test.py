@@ -16,7 +16,11 @@
 from LanguageStatistics import LanguageStatistics
 from datetime import datetime
 
-ct2_folder = "C:\\Users\\nilsk\\Desktop\\CrypTool-2_git\\CrypTool-2"
+# Change this path to the folder where the CrypTool-2 language statistics are stored, 
+# e.g. the folder "LanguageStatistics" in the standard CrypTool-2 installation folder.
+# You need to have CrypTool 2 installed to run this test or at least the CrypTool 2 
+# language statistics and dictionary files all in the same folder somewhere on your computer
+ct2_language_statistics_folder = "C:\\Program Files\\CrypTool 2\\LanguageStatistics"
 
 # test the cost calculation of all gram classes except hexagrams
 for i in range(1, 6):
@@ -26,7 +30,7 @@ for i in range(1, 6):
 
     #load grams for English
     start = datetime.now()
-    grams = LanguageStatistics.create_grams_by_size(i, "en", ct2_folder + "\\LanguageStatistics", False)
+    grams = LanguageStatistics.create_grams_by_size(i, "en", ct2_language_statistics_folder, False)
     print("Grams loaded in ", (datetime.now() - start))
 
     #normalize the grams
@@ -49,7 +53,7 @@ for i in range(1, 6):
 
 #test the word tree
 print("Loading word tree")
-tree = LanguageStatistics.load_word_tree("en", ct2_folder + "\\LanguageStatistics")
+tree = LanguageStatistics.load_word_tree("en", ct2_language_statistics_folder)
 print("Word tree loaded")
 
 word = "Hello"

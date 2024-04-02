@@ -31,12 +31,12 @@ for i in range(1, 6):
     #load grams for English
     start = datetime.now()
     grams = LanguageStatistics.create_grams_by_size(i, "en", ct2_language_statistics_folder, False)
-    print("Grams loaded in ", (datetime.now() - start))
+    print("\tGrams loaded in", (datetime.now() - start))
 
     #normalize the grams
     start = datetime.now()
     grams.normalize(1000000.0)
-    print("Grams normalized in ", (datetime.now() - start))
+    print("\tGrams normalized in", (datetime.now() - start))
 
     # we map the text into the number space of the grams
     numbers = LanguageStatistics.map_text_into_number_space("HELLOWORLDTHISISATEST", grams.alphabet)
@@ -46,24 +46,26 @@ for i in range(1, 6):
 
     #convert the numbers back into the text space
     text = LanguageStatistics.map_numbers_into_text_space(numbers, grams.alphabet)
-    print("Text:", text)
+    print("\tText:", text)
 
     #print the cost
-    print("Cost value:", cost)
+    print("\tCost value:", cost)
 
 #test the word tree
 print("Loading word tree")
+start = datetime.now()
 tree = LanguageStatistics.load_word_tree("en", ct2_language_statistics_folder)
-print("Word tree loaded")
+print("\tWord tree loaded", (datetime.now() - start))
+print("\tTotal number of words in tree", tree.stored_words)
 
 word = "Hello"
 print("Word:", word)
-print("Contains word:", tree.contains_word(word))
+print("\tContains word:", tree.contains_word(word))
 
 word = "World"
 print("Word:", word)
-print("Contains word:", tree.contains_word(word))
+print("\tContains word:", tree.contains_word(word))
 
 word = "HelloWorld"
 print("Word:", word)
-print("Contains word:", tree.contains_word(word))
+print("\tContains word:", tree.contains_word(word))

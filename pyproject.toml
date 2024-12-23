@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "LanguageStatisticsLibPy"
+version = "1.0.2"
+description = "Quick and robust Python functions and language statistics data (n-grams) to do cryptanalysis (for 15 languages)"
+readme = "README.md"
+authors = ["Nils Kopal <kopal@cryptool.org>","Bernhard Esslinger <esslinger@cryptool.org>"]
+license = "Apache-2.0"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+
+[tool.poetry.urls]
+Homepage = "https://github.com/CrypToolProject/LanguageStatisticsLibPy"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+dependencies = [
+     "numpy==2.2.1"
+]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

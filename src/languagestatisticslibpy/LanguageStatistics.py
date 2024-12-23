@@ -15,14 +15,14 @@
 '''
 import os
 import gzip
-from GramsType import GramsType
-from Unigrams import Unigrams
-from Bigrams import Bigrams
-from Trigrams import Trigrams
-from Tetragrams import Tetragrams
-from Pentagrams import Pentagrams
-from Hexagrams import Hexagrams
-from WordTree import WordTree
+from languagestatisticslibpy.GramsType import GramsType
+from languagestatisticslibpy.Unigrams import Unigrams
+from languagestatisticslibpy.Bigrams import Bigrams
+from languagestatisticslibpy.Trigrams import Trigrams
+from languagestatisticslibpy.Tetragrams import Tetragrams
+from languagestatisticslibpy.Pentagrams import Pentagrams
+from languagestatisticslibpy.Hexagrams import Hexagrams
+from languagestatisticslibpy.WordTree import WordTree
 
 class LanguageStatistics:
     supported_languages_codes = [

@@ -15,7 +15,7 @@
 '''
 from io import BufferedReader
 from collections import deque
-from Node import Node
+from languagestatisticslibpy.Node import Node
 
 class WordTree(Node):
     def __init__(self):

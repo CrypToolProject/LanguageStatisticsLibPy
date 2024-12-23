@@ -13,7 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 '''
-from LanguageStatistics import LanguageStatistics
+from languagestatisticslibpy.LanguageStatistics import LanguageStatistics
 from datetime import datetime
 
 # Change this path to the folder where the CrypTool-2 language statistics are stored, 

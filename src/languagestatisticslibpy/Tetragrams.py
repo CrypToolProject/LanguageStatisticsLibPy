@@ -15,9 +15,9 @@
 '''
 import numpy as np
 import os
-from Grams import Grams
-from GramsType import GramsType
-from LanguageStatisticsFile import LanguageStatisticsFile
+from languagestatisticslibpy.Grams import Grams
+from languagestatisticslibpy.GramsType import GramsType
+from languagestatisticslibpy.LanguageStatisticsFile import LanguageStatisticsFile
 
 class Tetragrams(Grams):
     def __init__(self, language, language_statistics_directory, use_spaces=False):

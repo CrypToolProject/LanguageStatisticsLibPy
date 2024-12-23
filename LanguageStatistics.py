@@ -15,14 +15,13 @@
 '''
 import os
 import gzip
-from datetime import datetime
-from Grams.GramsType import GramsType
-from Grams.Unigrams import Unigrams
-from Grams.Bigrams import Bigrams
-from Grams.Trigrams import Trigrams
-from Grams.Tetragrams import Tetragrams
-from Grams.Pentagrams import Pentagrams
-from Grams.Hexagrams import Hexagrams
+from GramsType import GramsType
+from Unigrams import Unigrams
+from Bigrams import Bigrams
+from Trigrams import Trigrams
+from Tetragrams import Tetragrams
+from Pentagrams import Pentagrams
+from Hexagrams import Hexagrams
 from WordTree import WordTree
 
 class LanguageStatistics:

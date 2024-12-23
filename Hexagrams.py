@@ -16,10 +16,10 @@
 import numpy as np
 import os
 from Grams import Grams
-from Grams import GramsType
+from GramsType import GramsType
 from LanguageStatisticsFile import LanguageStatisticsFile
 
-class Hexagrams(Grams.Grams):
+class Hexagrams(Grams):
     def __init__(self, language, language_statistics_directory, use_spaces=False):
         super().__init__(language, language_statistics_directory, use_spaces)
 

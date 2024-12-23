@@ -13,16 +13,54 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 '''
+
 class Node:
+    """
+    Represents a single node in a tree structure for storing characters.
+
+    Attributes:
+    - WordEndSymbol (str): A constant indicating the end of a word in the tree (default: `chr(1)`).
+    - TerminationSymbol (str): A constant indicating the end of a tree branch (default: `chr(0)`).
+    - value (str or None): The character or value stored in this node.
+    - word_ends_here (bool): Whether this node marks the end of a word.
+    - child_nodes (list): A list of child nodes connected to this node.
+    """
+
     WordEndSymbol = chr(1)  # Constant for the symbol indicating the end of a word
     TerminationSymbol = chr(0)  # Constant for the symbol indicating the end of the tree
 
     def __init__(self, value=None):
-        self.value = value  # The value of this node
-        self.word_ends_here = False  # Indicator if a word ends at this node
-        self.child_nodes = []  # All child nodes of this node
+        """
+        Initializes a Node object.
+
+        Parameters:
+        - value (str or None): The character or value to be stored in this node (default: None).
+
+        Initializes:
+        - self.value (str or None): The value of this node.
+        - self.word_ends_here (bool): Set to False initially, indicating that no word ends here.
+        - self.child_nodes (list): An empty list to hold child nodes.
+        """
+        self.value = value
+        self.word_ends_here = False
+        self.child_nodes = []
 
     def __eq__(self, other):
+        """
+        Compares two Node objects for equality.
+
+        Parameters:
+        - other (Node): The node to compare with.
+
+        Returns:
+        - bool: True if both nodes are equal, False otherwise.
+
+        Notes:
+        - Two nodes are considered equal if:
+          - Their values are the same.
+          - Their `word_ends_here` flags are the same.
+          - Their child nodes are identical in value and order.
+        """
         if not isinstance(other, Node):
             return False
         if self.value != other.value or self.word_ends_here != other.word_ends_here:
@@ -35,7 +73,15 @@ class Node:
         return True
 
     def __hash__(self):
-        # Calculate a hash value for this node
+        """
+        Calculates a hash value for the Node.
+
+        Returns:
+        - int: A hash value based on the node's value, `word_ends_here` status, and child nodes.
+
+        Notes:
+        - This method allows the node to be used in hash-based collections (e.g., sets, dictionaries).
+        """
         hash_value = hash(self.value)
         hash_value = hash_value * 31 + hash(self.word_ends_here)
         for child_node in self.child_nodes:

@@ -16,10 +16,23 @@
 from enum import Enum
 
 class GramsType(Enum):
-    Undefined = 0       # invalid type
-    Unigrams = 1        # 1-grams
-    Bigrams = 2         # 2-grams
-    Trigrams = 3        # 3-grams
-    Tetragrams = 4      # 4-grams
-    Pentagrams = 5     # 5-grams
-    Hexagrams = 6       # 6-grams
+    """
+    Enum representing the types of n-grams.
+
+    Attributes:
+    - Undefined (int): Represents an invalid or uninitialized type (value: 0).
+    - Unigrams (int): Represents 1-grams, single characters (value: 1).
+    - Bigrams (int): Represents 2-grams, pairs of characters (value: 2).
+    - Trigrams (int): Represents 3-grams, triplets of characters (value: 3).
+    - Tetragrams (int): Represents 4-grams, quadruplets of characters (value: 4).
+    - Pentagrams (int): Represents 5-grams, quintuplets of characters (value: 5).
+    - Hexagrams (int): Represents 6-grams, sextuplets of characters (value: 6).
+    """
+
+    Undefined = 0       # Invalid or uninitialized type
+    Unigrams = 1        # 1-grams (single characters)
+    Bigrams = 2         # 2-grams (pairs of characters)
+    Trigrams = 3        # 3-grams (triplets of characters)
+    Tetragrams = 4      # 4-grams (quadruplets of characters)
+    Pentagrams = 5      # 5-grams (quintuplets of characters)
+    Hexagrams = 6       # 6-grams (sextuplets of characters)

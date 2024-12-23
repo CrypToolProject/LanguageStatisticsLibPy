@@ -14,11 +14,12 @@
    limitations under the License.
 '''
 from languagestatisticslibpy.LanguageStatistics import LanguageStatistics
+from languagestatisticslibpy.LanguageStatistics import HandlingOfUnknownSymbols
 from datetime import datetime
 
-# Change this path to the folder where the CrypTool-2 language statistics are stored, 
+# Change this path to the folder where the CrypTool-2 language statistics are stored,
 # e.g. the folder "LanguageStatistics" in the standard CrypTool-2 installation folder.
-# You need to have CrypTool 2 installed to run this test or at least the CrypTool 2 
+# You need to have CrypTool 2 installed to run this test or at least the CrypTool 2
 # language statistics and dictionary files all in the same folder somewhere on your computer
 ct2_language_statistics_folder = "C:\\Program Files\\CrypTool 2\\LanguageStatistics"
 
@@ -38,8 +39,8 @@ for i in range(1, 6):
     grams.normalize(1000000.0)
     print("\tGrams normalized in", (datetime.now() - start))
 
-    # we map the text into the number space of the grams
-    numbers = LanguageStatistics.map_text_into_number_space("HELLOWORLDTHISISATEST", grams.alphabet)
+    # we map the text into the number space of the grams, also we remove all unknown symbols
+    numbers = LanguageStatistics.map_text_into_number_space("HELLO WORLD THIS IS A TEST", grams.alphabet, HandlingOfUnknownSymbols.REMOVE)
 
     #calculate the cost of the text
     cost = grams.calculate_cost(numbers)

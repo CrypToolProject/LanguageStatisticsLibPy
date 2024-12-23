@@ -5,8 +5,7 @@ The LanguageStatisticsLibPy is a Python library designed to facilitate the analy
 The library supports a broad array of languages and offers functionality for generating and handling n-gram data, specifically for calculating n-gram frequencies using language statistic files from CrypTool 2 (for example, "en-5gram-nocs.gz" indicates an English 5-gram file that is not case-sensitive and excludes spaces), found in the "LanguageStatistics" subdirectory of CrypTool 2. 
 Additionally, it facilitates the use of CrypTool 2's dictionaries through a "Word Tree," an efficient data structure for rapid word searches within a language. 
 These dictionary files are also housed within the "LanguageStatistics" subdirectory of CrypTool 2. 
-If you don't have a Windows machine or you don't want to install CrypTool 2, you may download the language statistic files and dictionaries from the CrypTool 2 github repo: [https://github.com/CrypToolProject/CrypTool-2/tree/main/LanguageStatistics]
-
+If you don't have a Windows machine or you don't want to install CrypTool 2, you may download the language statistic files and dictionaries from the CrypTool 2 github repo: [Language Statistics](https://github.com/CrypToolProject/CrypTool-2/tree/main/LanguageStatistics)
 ## Features
 
 - **Support for Multiple Languages**: The library includes predefined support for fifteen languages, including English, German, Spanish, French, and more, each with its own set of unigram frequencies and alphabets.

@@ -15,6 +15,7 @@
 '''
 import os
 import gzip
+from enum import Enum
 from languagestatisticslibpy.GramsType import GramsType
 from languagestatisticslibpy.Unigrams import Unigrams
 from languagestatisticslibpy.Bigrams import Bigrams
@@ -23,6 +24,10 @@ from languagestatisticslibpy.Tetragrams import Tetragrams
 from languagestatisticslibpy.Pentagrams import Pentagrams
 from languagestatisticslibpy.Hexagrams import Hexagrams
 from languagestatisticslibpy.WordTree import WordTree
+
+class HandlingOfUnknownSymbols(Enum):
+    REMOVE = 0
+    REPLACE = 1
 
 class LanguageStatistics:
     supported_languages_codes = [
@@ -135,12 +140,45 @@ class LanguageStatistics:
         return value / (N * (N - 1))
 
     @staticmethod
-    def map_numbers_into_text_space(numbers, alphabet):
-        return ''.join(alphabet[i] for i in numbers)
+    def map_numbers_into_text_space(numbers, alphabet,
+                                    handling: HandlingOfUnknownSymbols = HandlingOfUnknownSymbols.REMOVE,
+                                    replace_character='?'):
+        string = ""
+        if handling == HandlingOfUnknownSymbols.REMOVE:
+            print("Handling is REMOVE")
+            for n in numbers:
+                if 0 <= n < len(alphabet):
+                    string += alphabet[n]
+        elif handling == HandlingOfUnknownSymbols.REPLACE:
+            print("Handling is REPLACE")
+            for n in numbers:
+                if 0 <= n < len(alphabet):
+                    string += alphabet[n]
+                else:
+                    string += replace_character
+        else:
+            raise ValueError(f"Invalid handling mode: {handling}")
+        return string
 
     @staticmethod
-    def map_text_into_number_space(text, alphabet):
-        return [alphabet.index(c) for c in text]
+    def map_text_into_number_space(text, alphabet, handling: HandlingOfUnknownSymbols = HandlingOfUnknownSymbols.REMOVE,
+                                   replace_number=-1):
+        numlist = []
+        if handling == HandlingOfUnknownSymbols.REMOVE:
+            print("Handling is REMOVE")
+            for c in text:
+                if c in alphabet:
+                    numlist.append(alphabet.index(c))
+        elif handling == HandlingOfUnknownSymbols.REPLACE:
+            print("Handling is REPLACE")
+            for c in text:
+                if c in alphabet:
+                    numlist.append(alphabet.index(c))
+                else:
+                    numlist.append(replace_number)
+        else:
+            raise ValueError(f"Invalid handling mode: {handling}")
+        return numlist
 
     @staticmethod
     def get_grams_type_by_length(length):

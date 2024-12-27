@@ -8,7 +8,7 @@ Additionally, it facilitates the use of CrypTool 2's dictionaries through a "Wor
 The language statistics files (for example, `en-5gram-nocs.gz` indicates an English 5-gram file that is not case-sensitive and excludes spaces) can be found in the "LanguageStatistics" subdirectory of CrypTool 2, if you have installed CrypTool 2 on Windows.
 If you don't have a Windows machine or you don't want to install CrypTool 2, you may download the language statistics files and dictionaries from the CrypTool 2 Github repo: [Language Statistics](https://github.com/CrypToolProject/CrypTool-2/tree/main/LanguageStatistics).
 
-Remark: This package contains the implemented algorithms without the language statistics files. These files have to be downloaded separately as they occupy around xxx MB.
+Remark: This package contains the implemented algorithms without the language statistics files. These files have to be downloaded separately as they occupy around 87 MB.
 
 ## Features
 
@@ -29,20 +29,20 @@ Remark: This package contains the implemented algorithms without the language st
 3. **Calculating IoC**: Calculate the index of coincidence for a given plaintext using the `calculate_ioc` method.
 4. **Word Tree Loading**: For advanced language analysis, load a pre-built word tree for a specific language using the `load_word_tree` method.
 
-Sample usage:
+Sample usage (from file `test1.py`):
 
 ```python
-from xxxxxx.LanguageStatistics import LanguageStatistics
+from languagestatisticslibpy.LanguageStatistics import LanguageStatistics as LS
 
-plaintext = LanguageStatistics.map_text_into_number_space("HALLOWELT", LanguageStatistics.alphabets['de'])
-ioc = LanguageStatistics.calculate_ioc(plaintext)
+plaintext = LS.map_text_into_number_space("HALLOWELT", LS.alphabets['de'])
+ioc = LS.calculate_ioc(plaintext)
 
 print(ioc)
 ```
 
-You can find further example usages in the file `Test.py` within the package.
+You can find further example usages in the file `test2.py` within the package.
 
-## Supported Languages
+## Supported languages
 
 The library includes predefined configurations for the following languages:
 - English (en)
@@ -60,3 +60,41 @@ The library includes predefined configurations for the following languages:
 - Portuguese (pt)
 - Polish (pl)
 - Turkish (tr)
+
+
+## Some more technical details
+
+### Where are the package files stored after installing the package and how to find this out
+
+```bash
+% pip3 list | grep  LanguageStatisticsLibPy
+% pip3 show  LanguageStatisticsLibPy
+
+# show package content for example on Mac
+% tree /Users/be/Library/Python/3.13/lib/python/site-packages/LanguageStatisticsLibPy
+...
+# show content of a directory where the statistics files had been copied to
+tree /Users/be/Documents/Python/LanguageStatisticsLibPy_PIP-Test/LSLP
+...
+```
+
+### How to call the test files
+```bash
+% pwd
+/Users/be/Documents/Python/LanguageStatisticsLibPy_PIP-Test/testen2
+
+% ls -l
+-rwx------  1 be  staff   956 27 Dez 09:44 test1.py
+-rwx------@ 1 be  staff  2944 27 Dez 09:42 test2.py
+
+% python3 test1.py                                                     
+0.08333333333333333
+
+% python3 test2.py
+Grams size: 1
+	Grams loaded in 0:00:00.000097
+	Grams normalized in 0:00:00.000007
+	Text: HELLOWORLDTHISISATEST
+	Cost value: 771793.56
+...
+```

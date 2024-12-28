@@ -1,9 +1,9 @@
 [tool.poetry]
 name = "LanguageStatisticsLibPy"
-version = "1.0.2"
-description = "Quick and robust Python functions and language statistics data (n-grams) to do cryptanalysis (for 15 languages)"
+version = "1.0.3"
+description = "Quick and robust Python functions to do cryptanalysis using language statistics data for 15 languages"
 readme = "README.md"
-authors = ["Nils Kopal <kopal@cryptool.org>","Bernhard Esslinger <esslinger@cryptool.org>"]
+authors = ["Nils Kopal and Bernhard Esslinger <kopal@cryptool.org>"]
 license = "Apache-2.0"
 classifiers = [
     "Programming Language :: Python :: 3",

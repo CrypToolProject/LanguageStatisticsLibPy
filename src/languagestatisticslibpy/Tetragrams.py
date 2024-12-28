@@ -1,5 +1,5 @@
 '''
-   Copyright 2024 Nils Kopal, CrypTool Team
+   Copyright 2024 Nils Kopal, Bernhard Esslinger, CrypTool Team
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

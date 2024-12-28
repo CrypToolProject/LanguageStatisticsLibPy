@@ -59,7 +59,8 @@ for i in range(1, 6):
     #print the cost
     print("\tCost value:", cost)
 
-#test the word tree
+#Test the word tree
+#Hint: the word tree works with strings instead of number arrays
 print("Loading word tree")
 start = datetime.now()
 tree = LS.load_word_tree("en", ct2_language_statistics_folder)

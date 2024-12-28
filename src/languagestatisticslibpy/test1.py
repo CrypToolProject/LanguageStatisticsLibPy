@@ -20,7 +20,7 @@
 
 from languagestatisticslibpy.LanguageStatistics import LanguageStatistics as LS
 
-plaintext = LS.map_text_into_number_space("HALLOWELT", LS.alphabets['de'])
+plaintext = LS.map_text_into_number_space("HELLOWORD", LS.alphabets['en'])
 ioc = LS.calculate_ioc(plaintext)
 
 print(ioc)
